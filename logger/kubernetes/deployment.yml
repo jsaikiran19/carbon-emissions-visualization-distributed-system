@@ -5,8 +5,8 @@ metadata:
     autopilot.gke.io/resource-adjustment: '{"input":{"containers":[{"name":"logger-1"}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"name":"logger-1"}]},"modified":true}'
     autopilot.gke.io/warden-version: 2.7.41
     deployment.kubernetes.io/revision: "1"
-  creationTimestamp: "2023-09-13T04:33:51Z"
-  generation: 2
+  creationTimestamp: "2023-09-13T23:03:29Z"
+  generation: 3
   labels:
     app: logger
   managedFields:
@@ -57,7 +57,7 @@ metadata:
             f:terminationGracePeriodSeconds: {}
     manager: GoogleCloudConsole
     operation: Update
-    time: "2023-09-13T04:33:50Z"
+    time: "2023-09-13T23:03:29Z"
   - apiVersion: apps/v1
     fieldsType: FieldsV1
     fieldsV1:
@@ -91,11 +91,11 @@ metadata:
     manager: kube-controller-manager
     operation: Update
     subresource: status
-    time: "2023-09-13T04:48:02Z"
+    time: "2023-09-13T23:13:32Z"
   name: logger
   namespace: default
-  resourceVersion: "5326670"
-  uid: 79e37444-f020-48e5-b03d-1cbfad45a061
+  resourceVersion: "6102026"
+  uid: f988f510-529a-434a-acee-4ca73a69c8ed
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -148,30 +148,31 @@ spec:
 status:
   availableReplicas: 1
   conditions:
-  - lastTransitionTime: "2023-09-13T04:33:51Z"
-    lastUpdateTime: "2023-09-13T04:37:53Z"
-    message: ReplicaSet "logger-86dbcc789" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: "2023-09-13T04:48:02Z"
-    lastUpdateTime: "2023-09-13T04:48:02Z"
+  - lastTransitionTime: "2023-09-13T23:06:44Z"
+    lastUpdateTime: "2023-09-13T23:06:44Z"
     message: Deployment has minimum availability.
     reason: MinimumReplicasAvailable
     status: "True"
     type: Available
-  observedGeneration: 2
+  - lastTransitionTime: "2023-09-13T23:03:29Z"
+    lastUpdateTime: "2023-09-13T23:06:44Z"
+    message: ReplicaSet "logger-86dbcc789" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 3
   readyReplicas: 1
   replicas: 1
   updatedReplicas: 1
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
   annotations:
     cloud.google.com/neg: '{"ingress":true}'
-  creationTimestamp: "2023-09-13T04:34:55Z"
+  creationTimestamp: "2023-09-13T23:04:33Z"
   finalizers:
   - service.kubernetes.io/load-balancer-cleanup
   labels:
@@ -200,7 +201,7 @@ metadata:
         f:type: {}
     manager: GoogleCloudConsole
     operation: Update
-    time: "2023-09-13T04:34:54Z"
+    time: "2023-09-13T23:04:33Z"
   - apiVersion: v1
     fieldsType: FieldsV1
     fieldsV1:
@@ -214,23 +215,23 @@ metadata:
     manager: cloud-controller-manager
     operation: Update
     subresource: status
-    time: "2023-09-13T04:35:25Z"
+    time: "2023-09-13T23:05:02Z"
   name: logger-service
   namespace: default
-  resourceVersion: "5316851"
-  uid: b555ae59-15df-42f2-939d-0c10cfb0a389
+  resourceVersion: "6095165"
+  uid: 01618275-99b3-4ded-9ece-f2c225b0ac45
 spec:
   allocateLoadBalancerNodePorts: true
-  clusterIP: 34.118.225.35
+  clusterIP: 34.118.237.45
   clusterIPs:
-  - 34.118.225.35
+  - 34.118.237.45
   externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - nodePort: 32280
+  - nodePort: 30754
     port: 8085
     protocol: TCP
     targetPort: 8085
@@ -241,4 +242,4 @@ spec:
 status:
   loadBalancer:
     ingress:
-    - ip: 35.225.152.156
+    - ip: 35.226.119.83
