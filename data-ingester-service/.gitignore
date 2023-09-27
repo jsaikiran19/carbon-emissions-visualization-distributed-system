@@ -12,3 +12,5 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+neon-dryad-398319-205a0100e84a.json
+*.properties

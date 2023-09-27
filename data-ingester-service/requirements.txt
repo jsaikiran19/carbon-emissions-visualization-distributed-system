@@ -1,0 +1,8 @@
+requests
+flask
+kafka-python
+python-dotenv
+matplotlib
+pandas
+flask_cors
+confluent-kafka
